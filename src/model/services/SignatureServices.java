@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import model.entities.Signature;
+
 public class SignatureServices {
 	public static double characterSum(String text) {
 		List<String> sentences = TextServices.separateSentences(text);
@@ -113,24 +115,28 @@ public class SignatureServices {
 		return characterSum / phraseSum;
 	}
 	
-	public static List<Double> subscriptionCalculation(String text) {
+	public static List<Double> signatureCalculation(String text) {
 		double a1 = averageWordSize(text);
 		double a2 = TypeToken(text);
 		double a3 = Hapax(text);
 		double a4 = averageSentenceSize(text);
 		double a5 = sentenceComplexity(text);
 		double a6 = averagePhraseSize(text);
-		List<Double> subscription = new ArrayList<>(Arrays.asList(a1, a2, a3, a4, a5, a6));
-		return subscription;
+		List<Double> signature = new ArrayList<>(Arrays.asList(a1, a2, a3, a4, a5, a6));
+		return signature;
 	}
 	
-	public static double compareSubscriptions(List<Double> asA, List<Double> asB) {
-		double sumOfDifference = 0.0;
-		for (int i = 0; i < 6; i++) {
-			double fA = asA.get(i);
-			double fB = asB.get(i);
-			sumOfDifference += Math.abs(fA - fB);
-		}
+	public static double compareSignature(Signature asA, Signature asB) {
+		
+		double sum1 = asA.getAveragePhraseLenght() - asB.getAveragePhraseLenght();
+		double sum2 = asA.getAverageSentenceComplexity() - asB.getAverageSentenceComplexity();
+		double sum3 = asA.getAverageSentenceLenght() - asB.getAverageSentenceLenght();
+		double sum4 = asA.getAverageWordLenght() - asB.getAverageWordLenght();
+		double sum5 = asA.getHapaxLegomana() - asB.getHapaxLegomana();
+		double sum6 = asA.getTypeToken() - asB.getTypeToken();
+		
+		double sumOfDifference = sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
+		
 		return sumOfDifference / 6;
 	}
 }
