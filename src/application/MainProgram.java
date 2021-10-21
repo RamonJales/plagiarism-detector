@@ -10,20 +10,24 @@ import model.entities.Text;
 public class MainProgram {
 
 	public static void main(String[] args) {
-		Locale.setDefault(Locale.US);
-		Scanner sc = new Scanner(System.in);
 		
-		//read the main signature
-		Signature mainSignature = UI.readMainSignature(sc);
-		
-		//reads all texts and puts them into a list
-		List<Text> texts = UI.readTexts(sc);
-		
-		//search for which text is infected
-		int position = UI.serarchInfected(texts, mainSignature, sc);
-		
-		System.out.println("The author of text " + (position + 1) + " is infected with COH-PIAH!");
-		
-		sc.close();
+		try (Scanner sc = new Scanner(System.in);){
+			Locale.setDefault(Locale.US);
+			
+			//read the main signature
+			Signature mainSignature = UI.readMainSignature(sc);
+			
+			//reads all texts and puts them into a list
+			List<Text> texts = UI.readTexts(sc);
+			
+			//search for which text is infected
+			int position = UI.serarchInfected(texts, mainSignature, sc);
+			
+			System.out.println("The author of text " + (position + 1) + " is infected with COH-PIAH!");
+			sc.close();
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }
