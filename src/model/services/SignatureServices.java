@@ -7,7 +7,7 @@ import java.util.List;
 import model.entities.Signature;
 
 public class SignatureServices {
-	public static double characterSum(String text) {
+	protected static double characterSum(String text) {
 		List<String> sentences = TextServices.separateSentences(text);
 		List<String> characterList = new ArrayList<>();
 		
@@ -21,7 +21,7 @@ public class SignatureServices {
 		return (double)characterList.size();
 	}
 	
-	public static double wordSum(String text) {
+	protected static double wordSum(String text) {
 		List<String> sentences = TextServices.separateSentences(text);
 		List<String> wordList = new ArrayList<>();
 		
@@ -35,13 +35,13 @@ public class SignatureServices {
 		return (double)wordList.size();
 	}
 	
-	public static double averageWordSize(String text) {
+	protected static double averageWordSize(String text) {
 		double characterSum =  (double) characterSum(text);
 		double wordSum = (double) wordSum(text);
 		return characterSum / wordSum;
 	}
 	
-	public static double TypeToken(String text) {
+	protected static double TypeToken(String text) {
 		List<String> sentences = TextServices.separateSentences(text);
 		List<String> wordList = new ArrayList<>();
 		
@@ -58,7 +58,7 @@ public class SignatureServices {
 		return differentWords / wordSum;
 	}
 	
-	public static double Hapax(String text) {
+	protected static double Hapax(String text) {
 		List<String> sentences = TextServices.separateSentences(text);
 		List<String> wordList = new ArrayList<>();
 		
@@ -76,7 +76,7 @@ public class SignatureServices {
 		return uniqueWords / wordSum;
 	}
 	
-	public static double averageSentenceSize(String text) {
+	protected static double averageSentenceSize(String text) {
 		List<String> sentences = TextServices.separateSentences(text);
 		List<String> characterList = new ArrayList<>();
 		
@@ -89,7 +89,7 @@ public class SignatureServices {
 		return totalCharacter / sentencesize;
 	}
 	
-	public static double sentenceComplexity(String text) {
+	protected static double sentenceComplexity(String text) {
 		List<String> sentences = TextServices.separateSentences(text);
 		double phraseSum = 0.0;
 		for (String sentence : sentences) {
@@ -99,7 +99,7 @@ public class SignatureServices {
 		return phraseSum / (double)sentences.size();
 	}
 	
-	public static double averagePhraseSize(String text) {
+	protected static double averagePhraseSize(String text) {
 		List<String> sentences = TextServices.separateSentences(text);
 		List<String> phraseList = new ArrayList<>();
 		double phraseSum = 0.0;

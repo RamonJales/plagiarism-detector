@@ -11,7 +11,7 @@ import model.services.SignatureServices;
 
 public class UI {
 	
-	public static Signature readMainSignature(Scanner sc) {
+	protected static Signature readMainSignature(Scanner sc) {
 		System.out.println("Welcome to the automatic COH-PIAH detector.");
 		System.out.println("Enter the typical signature of an infected student:");
 		System.out.println();
@@ -37,7 +37,7 @@ public class UI {
 		return new Signature(wal, ttr, hlr, sal, sac, pal);
 	}
 	
-	public static List<Text> readTexts(Scanner sc) {
+	protected static List<Text> readTexts(Scanner sc) {
 		List<Text> texts = new ArrayList<>();
 		
 		int count = 1;
@@ -54,7 +54,7 @@ public class UI {
 		return texts;
 	}
 	
-	public static int serarchInfected(List<Text> texts, Signature mainSignature, Scanner sc) {
+	protected static int serarchInfected(List<Text> texts, Signature mainSignature, Scanner sc) {
 		List<Double> results = new ArrayList<>();
 		
 		for (Text text : texts) {

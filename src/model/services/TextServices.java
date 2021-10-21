@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class TextServices {
 	
-	public static List<String> separateSentences(String text) {
+	protected static List<String> separateSentences(String text) {
 		List<String> sentencesList = new ArrayList<>(Arrays.asList(text.split("[.!?]+")));
 		if (sentencesList.get(sentencesList.size() - 1) == "") {
 			sentencesList.remove(sentencesList.size() - 1);
@@ -16,17 +16,17 @@ public class TextServices {
 		return sentencesList;
 	}
 	
-	public static List<String> separatePhrases(String sentence) {
+	protected static List<String> separatePhrases(String sentence) {
 		List<String> PhraseList = new ArrayList<>(Arrays.asList(sentence.split("[,:;]+")));
 		return PhraseList;
 	}
 	
-	public static List<String> separateWords(String phrase) {
+	protected static List<String> separateWords(String phrase) {
 		List<String> wordList = new ArrayList<>(Arrays.asList(phrase.split(" ")));
 		return wordList;
 	}
 	
-	public static double uniqueWords(List<String> wordList) {
+	protected static double uniqueWords(List<String> wordList) {
 		Map<String, Double> map = new HashMap<>();
 		double singleWordCounter = 0.0;
 		
@@ -53,7 +53,7 @@ public class TextServices {
 		return singleWordCounter;
 	}
 	
-	public static double differentWords(List<String> wordList) {
+	protected static double differentWords(List<String> wordList) {
 		Map<String, Double> map = new HashMap<>();
 		for (String word : wordList) {
 			String lowerCaseWord = word.toLowerCase();
