@@ -115,14 +115,14 @@ public class SignatureServices {
 		return characterSum / phraseSum;
 	}
 	
-	public static List<Double> signatureCalculation(String text) {
+	public static Signature signatureCalculation(String text) {
 		double a1 = averageWordSize(text);
 		double a2 = TypeToken(text);
 		double a3 = Hapax(text);
 		double a4 = averageSentenceSize(text);
 		double a5 = sentenceComplexity(text);
 		double a6 = averagePhraseSize(text);
-		List<Double> signature = new ArrayList<>(Arrays.asList(a1, a2, a3, a4, a5, a6));
+		Signature signature = new Signature(a1, a2, a3, a4, a5, a6);
 		return signature;
 	}
 	
