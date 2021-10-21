@@ -67,4 +67,11 @@ public class Signature {
 	public void setAveragePhraseLenght(Double averagePhraseLenght) {
 		this.averagePhraseLenght = averagePhraseLenght;
 	}
+
+	@Override
+	public String toString() {
+		return "Signature [averageWordLenght=" + averageWordLenght + ", typeToken=" + typeToken + ", hapaxLegomana="
+				+ hapaxLegomana + ", averageSentenceLenght=" + averageSentenceLenght + ", averageSentenceComplexity="
+				+ averageSentenceComplexity + ", averagePhraseLenght=" + averagePhraseLenght + "]";
+	}
 }
