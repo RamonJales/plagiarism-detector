@@ -11,8 +11,9 @@ public class MainProgram {
 
 	public static void main(String[] args) {
 		
+		Locale.setDefault(Locale.US);
+		
 		try (Scanner sc = new Scanner(System.in);){
-			Locale.setDefault(Locale.US);
 			
 			//read the main signature
 			Signature mainSignature = UI.readMainSignature(sc);
